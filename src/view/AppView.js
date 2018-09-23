@@ -9,19 +9,20 @@ export default class AppView extends Component
 	{
 		super(props);
 
-		this.state = {};
+		this.state = {name:''};
 
 		/**
-		 * Injected service
+		 * Name service declared as undefined, will be injected by ConboJS
 		 * @type NameService
 		 */
 		this.nameService = undefined;
 
 		/** 
-		 * ConboJS context and property injector
+		 * Reference to ConboJS application's context and property injector
+		 * TODO This should probably be distributed to other components via React context or similar in your app
 		 * @type conbo.Context 
 		 */
-		this.ctx = props.context;
+		this.ctx = props.ctx;
 		this.ctx.injectSingletons(this);
 		
 		this.nameService.loadName().then(result =>

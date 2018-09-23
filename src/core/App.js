@@ -19,7 +19,7 @@ export default class App extends HeadlessApplication
 
 	initialize()
 	{
-		ReactDOM.render(<AppView context={this.context} />, document.getElementById('root'));
+		ReactDOM.render(<AppView ctx={this.context} />, document.getElementById('root'));
 		registerServiceWorker();
 	}
 }
