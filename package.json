@@ -1,6 +1,7 @@
 {
   "name": "conbo-example-react",
-  "repository": "",
+  "repository": "https://github.com/mesmotronic/conbo-example-react.git",
+  "author": "Neil Rackett",
   "version": "0.1.0",
   "keywords": [
     "conbo",
