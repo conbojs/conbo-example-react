@@ -1,7 +1,7 @@
-import { Command } from 'conbo';
+import { Command, DataEvent } from 'conbo';
 
 /**
- * Save and display name in response to "hello" event
+ * Save name in response to "save" event, e.g. to a server or database
  * @author	Neil Rackett
  */
 export default class SaveCommand extends Command
@@ -20,6 +20,6 @@ export default class SaveCommand extends Command
 		let name = this.event.data.name;
 		this.nameService.saveName(name);
 
-		alert(`Thanks ${name}, your name has been saved!`);
+		this.context.dispatchEvent(new DataEvent('saved', {name}));
 	}
 }
