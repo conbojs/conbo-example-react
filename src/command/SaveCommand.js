@@ -8,7 +8,10 @@ export default class SaveCommand extends Command
 {
 	declarations()
 	{
-		/** @type NameService */
+		/** 
+		 * Automatically injected by ConboJS
+		 * @type NameService 
+		 */
 		this.nameService = undefined;
 	}
 

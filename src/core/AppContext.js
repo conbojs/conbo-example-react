@@ -1,12 +1,14 @@
 import { Context } from 'conbo';
-import SaveCommand from '../controller/SaveCommand';
+import SaveCommand from '../command/SaveCommand';
 import NameService from '../service/NameService';
 
 /**
- * Commands and singletons available via the application context
+ * Application context used to make property injection, commands and singletons
+ * available to your components
+ * 
  * @author	Neil Rackett
  */
-export default class AppContext extends Context
+class AppContext extends Context
 {
 	initialize()
 	{
@@ -15,3 +17,7 @@ export default class AppContext extends Context
 			;
 	}
 }
+
+const context = new AppContext();
+
+export default context;

@@ -2,7 +2,7 @@
   "name": "conbo-example-react",
   "repository": "https://github.com/mesmotronic/conbo-example-react.git",
   "author": "Neil Rackett",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
     "conbo",
     "conbojs",
@@ -11,7 +11,7 @@
     "mvcs"
   ],
   "dependencies": {
-    "conbo": "^4.3.13",
+    "conbo": "^4.3.20",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "1.1.5"

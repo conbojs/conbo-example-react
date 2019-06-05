@@ -1,9 +1,11 @@
+import './App.css';
+
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './AppView.css';
-import { DataEvent, bindAll } from 'conbo';
+import { DataEvent, bindAll, assign } from 'conbo';
+import context from './core/AppContext';
 
-export default class AppView extends Component 
+export default class App extends Component 
 {
 	constructor(props) 
 	{
@@ -12,24 +14,25 @@ export default class AppView extends Component
 		this.state = {name:''};
 
 		/**
-		 * Name service declared as undefined, will be injected by ConboJS
+		 * Name service will be injected by ConboJS (declared as undefined)
 		 * @type NameService
 		 */
 		this.nameService = undefined;
 
 		/** 
-		 * Reference to ConboJS application's context and property injector
-		 * TODO This should probably be distributed to other components via React context or similar in your app
+		 * Reference to the application's ConboJS context and property injector
 		 * @type conbo.Context 
 		 */
-		this.ctx = props.ctx;
-		this.ctx.injectSingletons(this);
+		context.inject(this);
 		
-		this.nameService.loadName().then(result =>
-		{
-			this.setState({name:result.name});
-		});
+		this.nameService
+			.loadName()
+			.then(result => this.setState(assign({}, result)))
+			;
 
+		/**
+		 * Binds all class functions to the class instance so that they run in the correct scope
+		 */
 		bindAll(this);
 	}
 	
@@ -58,6 +61,6 @@ export default class AppView extends Component
 
 	save()
 	{
-		this.ctx.dispatchEvent(new DataEvent('save', this.state));
+		context.dispatchEvent(new DataEvent('save', this.state));
 	}
 }

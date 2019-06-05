@@ -1,11 +1,13 @@
 ConboJS-React example
 =====================
 
-Simple example showing ConboJS as the M, C and S in an MVCS React application.
+Simple example application demonstrating how to integrate a ConboJS application
+context into React to enable property injection, commands and services to be used.
 
 To run the example, open a command line and enter:
 
-```javascript
+```
+npm i
 npm start
 ```
 

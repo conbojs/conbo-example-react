@@ -1,3 +1,14 @@
-import App from './core/App';
+/**
+ * Simple ConboJS-React example
+ * @author	Neil Rackett
+ */
 
-new App();
+import './index.css';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
