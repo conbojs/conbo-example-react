@@ -31,7 +31,8 @@ export default class App extends Component
 			;
 
 		/**
-		 * Binds all class functions to the class instance so that they run in the correct scope
+		 * Binds all class functions to the class instance so that they run in the correct scope,
+		 * effectively the same as defining them all using `func = () => {}` arrow function syntax
 		 */
 		bindAll(this);
 	}
@@ -45,11 +46,11 @@ export default class App extends Component
 					<h1 className="App-title">Welcome to ConboJS example for React</h1>
 				</header>
 				<h1>Hello, {this.state.name}!</h1>
-				<p className="App-intro">
+				<form className="App-intro">
 					My name is
 					&nbsp;<input type="text" defaultValue={this.state.name} onChange={this.changeHandler} />
-					&nbsp;<button onClick={this.save}>Save</button>
-				</p>
+					&nbsp;<button type="submit" onClick={this.save}>Save</button>
+				</form>
 			</div>
 		);
 	}
@@ -59,8 +60,11 @@ export default class App extends Component
 		this.setState({name:event.target.value});
 	}
 
-	save()
+	save(event)
 	{
-		context.dispatchEvent(new DataEvent('save', this.state));
+		context.dispatchEvent(new DataEvent('nameSave', this.state));
+
+		event.preventDefault();
+		return false;
 	}
 }

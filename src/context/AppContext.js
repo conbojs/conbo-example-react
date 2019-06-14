@@ -1,7 +1,7 @@
 import { Context } from 'conbo';
 
-import SaveCommand from '../command/SaveCommand';
-import SavedCommand from '../command/SavedCommand';
+import NameSaveCommand from '../command/NameSaveCommand';
+import NameSavedCommand from '../command/NameSavedCommand';
 import NameService from '../service/NameService';
 
 /**
@@ -14,8 +14,8 @@ export default class AppContext extends Context
 {
 	initialize()
 	{
-		this.mapCommand('save', SaveCommand)
-			.mapCommand('saved', SavedCommand)
+		this.mapCommand('nameSave', NameSaveCommand)
+			.mapCommand('nameSaved', NameSavedCommand)
 			.mapSingleton('nameService', NameService)
 			;
 	}

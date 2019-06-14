@@ -1,10 +1,10 @@
-import { Command, DataEvent } from 'conbo';
+import { Command } from 'conbo';
 
 /**
  * Open an alert in response to "saved" event
  * @author	Neil Rackett
  */
-export default class SavedCommand extends Command
+export default class NameSavedCommand extends Command
 {
 	execute()
 	{
