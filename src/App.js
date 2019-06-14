@@ -25,6 +25,10 @@ export default class App extends Component
 		 */
 		context.inject(this);
 		
+		/**
+		 * Use the injected NameService instance to load the data we need. You might prefer
+		 * to do this using a Command via context events to improve decoupling
+		 */
 		this.nameService
 			.loadName()
 			.then(result => this.setState(assign({}, result)))
