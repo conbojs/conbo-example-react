@@ -1,4 +1,4 @@
-import { LocalHash, assign } from "conbo";
+import { LocalHash, assign } from 'conbo';
 
 /**
  * Simple service that saves and loads a name (could be an HttpService, fetch, etc, in a real app)

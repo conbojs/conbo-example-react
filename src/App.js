@@ -3,7 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import { DataEvent, bindAll, assign } from 'conbo';
-import context from './core/AppContext';
+import context from './context';
 
 export default class App extends Component 
 {

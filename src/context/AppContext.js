@@ -10,7 +10,7 @@ import NameService from '../service/NameService';
  * 
  * @author	Neil Rackett
  */
-class AppContext extends Context
+export default class AppContext extends Context
 {
 	initialize()
 	{
@@ -20,8 +20,3 @@ class AppContext extends Context
 			;
 	}
 }
-
-// We only need one instance, so we create and export it here, effectively creating a singleton
-const context = new AppContext();
-
-export default context;
