@@ -8,7 +8,7 @@ import { DataEvent, bindAll } from 'conbine';
  */
 export default class InputView extends Component
 {
-	currentName;
+	transientName;
 
 	constructor(props)
 	{
@@ -31,13 +31,20 @@ export default class InputView extends Component
 	inputChangeHandler(event)
 	{
 		let name = event.target.value;
-		this.currentName = name;
+		this.transientName = name;
+		context.dispatchEvent(new DataEvent('nameChange', {name}));
+	}
+
+	resetHandler(event)
+	{
+		let { name } = this.state;
+		this.transientName = name;
 		context.dispatchEvent(new DataEvent('nameChange', {name}));
 	}
 
 	save(event)
 	{
-		let name = this.currentName;
+		let name = this.transientName;
 		this.setState({name});
 		context.dispatchEvent(new DataEvent('nameSave', {name}));
 		event.preventDefault();
@@ -51,7 +58,7 @@ export default class InputView extends Component
 				My name is
 				&nbsp;<input type="text" defaultValue={this.state.name} onChange={this.inputChangeHandler} />
 				&nbsp;<button type="submit" onClick={this.save}>Save</button>
-				&nbsp;<button type="reset">Reset</button>
+				&nbsp;<button type="reset" onClick={this.resetHandler}>Reset</button>
 			</form>
 		);
 	}
