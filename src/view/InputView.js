@@ -51,6 +51,7 @@ export default class InputView extends Component
 				My name is
 				&nbsp;<input type="text" defaultValue={this.state.name} onChange={this.inputChangeHandler} />
 				&nbsp;<button type="submit" onClick={this.save}>Save</button>
+				&nbsp;<button type="reset">Reset</button>
 			</form>
 		);
 	}
