@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import context from '../context';
-import { DataEvent, bindAll } from 'conbine';
+import { DataEvent, bindAll } from 'conbo';
 
 /**
  * Input view

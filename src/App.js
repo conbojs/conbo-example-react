@@ -1,4 +1,4 @@
-import { bindAll } from 'conbine';
+import { bindAll } from 'conbo';
 import React, { Component } from 'react';
 import './App.css';
 import context from './context';

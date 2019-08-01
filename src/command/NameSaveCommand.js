@@ -1,4 +1,4 @@
-import { Command } from 'conbine';
+import { Command } from 'conbo';
 
 /**
  * Save name in response to "nameSave" event, e.g. to a server or database

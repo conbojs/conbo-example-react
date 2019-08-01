@@ -1,4 +1,4 @@
-import { Context } from 'conbine';
+import { Context } from 'conbo';
 
 import NameSaveCommand from '../command/NameSaveCommand';
 import NameSavedCommand from '../command/NameSavedCommand';
