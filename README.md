@@ -10,8 +10,8 @@ of ConboJS, which is ConboJS with all the view classes removed, and creates
 a context that is available globally via an `import`.
 
 This approach benefits from its simplicity and requires less code than other 
-approaches, as there's no properties to pass or `contextType`s to set, like
-using the React Context API.
+approaches, as there's no properties to pass or `contextType`s to set, for
+example.
 
 To run the example, open a command line and enter:
 
