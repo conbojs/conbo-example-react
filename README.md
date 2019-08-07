@@ -6,7 +6,11 @@ features into a React application, including an event bus, property injection,
 commands and services.
 
 This example uses the [Conbine](https://www.npmjs.com/package/conbine) build 
-of ConboJS, which is ConboJS with all the view classes removed.
+of ConboJS, which is ConboJS with all the view classes removed, and the React
+Context API.
+
+If you'd prefer to take a simpler approach using a global context, take a look
+at the `global` branch.
 
 To run the example, open a command line and enter:
 

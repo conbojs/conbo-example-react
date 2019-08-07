@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import context from '../context';
+import { AppContext } from '../context';
 
 /**
  * Output view
@@ -7,7 +7,9 @@ import context from '../context';
  */
 export default class OutputView extends Component
 {
-	constructor(props)
+	static contextType = AppContext;
+
+	constructor(props, context)
 	{
 		super(props);
 

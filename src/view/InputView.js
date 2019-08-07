@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import context from '../context';
 import { DataEvent, bindAll } from 'conbo';
+import { AppContext } from '../context';
 
 /**
  * Input view
@@ -8,9 +8,11 @@ import { DataEvent, bindAll } from 'conbo';
  */
 export default class InputView extends Component
 {
+	static contextType = AppContext;
+
 	transientName;
 
-	constructor(props)
+	constructor(props, context)
 	{
 		super(props);
 
@@ -32,21 +34,21 @@ export default class InputView extends Component
 	{
 		let name = event.target.value;
 		this.transientName = name;
-		context.dispatchEvent(new DataEvent('nameChange', {name}));
+		this.context.dispatchEvent(new DataEvent('nameChange', {name}));
 	}
 
 	resetHandler(event)
 	{
 		let { name } = this.state;
 		this.transientName = name;
-		context.dispatchEvent(new DataEvent('nameChange', {name}));
+		this.context.dispatchEvent(new DataEvent('nameChange', {name}));
 	}
 
 	save(event)
 	{
 		let name = this.transientName;
 		this.setState({name});
-		context.dispatchEvent(new DataEvent('nameSave', {name}));
+		this.context.dispatchEvent(new DataEvent('nameSave', {name}));
 		event.preventDefault();
 		return false;
 	}

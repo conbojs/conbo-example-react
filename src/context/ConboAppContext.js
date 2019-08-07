@@ -11,7 +11,7 @@ import NameService from '../service/NameService';
  * 
  * @author	Neil Rackett
  */
-export default class AppContext extends Context
+export default class ConboAppContext extends Context
 {
 	initialize()
 	{

@@ -1,22 +1,24 @@
 import { bindAll } from 'conbo';
 import React, { Component } from 'react';
 import './App.css';
-import context from './context';
 import logo from './logo.svg';
 import InputView from './view/InputView';
 import OutputView from './view/OutputView';
+import { AppContext } from './context';
 
 export default class App extends Component 
 {
-	constructor(props) 
+	static contextType = AppContext;
+	
+	/**
+	 * Name service will be injected by ConboJS (declared as undefined)
+	 * @type NameService
+	 */
+	nameService = undefined;
+
+	constructor(props, context) 
 	{
 		super(props);
-
-		/**
-		 * Name service will be injected by ConboJS (declared as undefined)
-		 * @type NameService
-		 */
-		this.nameService = undefined;
 
 		/** 
 		 * Reference to the application's ConboJS context and property injector
@@ -35,7 +37,7 @@ export default class App extends Component
 		 */
 		bindAll(this);
 	}
-	
+
 	render()
 	{
 		return (
