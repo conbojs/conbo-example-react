@@ -3,6 +3,7 @@ import { Context } from 'conbo';
 import NameSaveCommand from '../command/NameSaveCommand';
 import NameSavedCommand from '../command/NameSavedCommand';
 import NameService from '../service/NameService';
+import NameEvent from '../events/NameEvent';
 
 /**
  * This is the application context, which provides you with an event bus and
@@ -17,8 +18,8 @@ export default class ConboAppContext extends Context
 	{
 		this.mapSingleton('nameService', NameService)
 
-			.mapCommand('nameSave', NameSaveCommand)
-			.mapCommand('nameSaved', NameSavedCommand)			
+			.mapCommand(NameEvent.NAME_SAVE, NameSaveCommand)
+			.mapCommand(NameEvent.NAME_SAVED, NameSavedCommand)			
 			;
 	}
 }

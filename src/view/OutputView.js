@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AppContext } from '../context';
+import NameEvent from '../events/NameEvent';
 
 /**
  * Output view
@@ -16,8 +17,8 @@ export default class OutputView extends Component
 		this.state = {};
 
 		context
-			.addEventListener('nameLoaded', this.nameChangeHandler, this)
-			.addEventListener('nameChange', this.nameChangeHandler, this)
+			.addEventListener(NameEvent.NAME_LOADED, this.nameChangeHandler, this)
+			.addEventListener(NameEvent.NAME_CHANGE, this.nameChangeHandler, this)
 			;
 	}
 

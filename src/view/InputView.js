@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { DataEvent, bindAll } from 'conbo';
+import { bindAll } from 'conbo';
 import { AppContext } from '../context';
+import NameEvent from '../events/NameEvent';
 
 /**
  * Input view
@@ -19,7 +20,7 @@ export default class InputView extends Component
 		this.state = {};
 
 		context
-			.addEventListener('nameLoaded', this.nameLoadedHandler, this)
+			.addEventListener(NameEvent.NAME_LOADED, this.nameLoadedHandler, this)
 			;
 
 		bindAll(this);
@@ -34,21 +35,21 @@ export default class InputView extends Component
 	{
 		let name = event.target.value;
 		this.transientName = name;
-		this.context.dispatchEvent(new DataEvent('nameChange', {name}));
+		this.context.dispatchEvent(new NameEvent(NameEvent.NAME_CHANGE, {name}));
 	}
 
 	resetHandler(event)
 	{
 		let { name } = this.state;
 		this.transientName = name;
-		this.context.dispatchEvent(new DataEvent('nameChange', {name}));
+		this.context.dispatchEvent(new NameEvent(NameEvent.NAME_CHANGE, {name}));
 	}
 
 	save(event)
 	{
 		let name = this.transientName;
 		this.setState({name});
-		this.context.dispatchEvent(new DataEvent('nameSave', {name}));
+		this.context.dispatchEvent(new NameEvent(NameEvent.NAME_SAVE, {name}));
 		event.preventDefault();
 		return false;
 	}

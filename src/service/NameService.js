@@ -1,4 +1,5 @@
-import { LocalHash, assign, DataEvent } from 'conbo';
+import { LocalHash, assign } from 'conbo';
+import NameEvent from '../events/NameEvent';
 
 /**
  * Simple service that saves and loads a name (could be an HttpService, fetch, etc, in a real app)
@@ -19,14 +20,14 @@ export default class NameService extends LocalHash
 
 	loadName()
 	{
-		this.context.dispatchEvent(new DataEvent('nameLoad'));
+		this.context.dispatchEvent(new NameEvent(NameEvent.NAME_LOAD));
 
 		// Simulate an async call, e.g. to a web API
 		return Promise.resolve(this)
 			.then(result =>
 			{
 				let { name } = this;
-				this.context.dispatchEvent(new DataEvent('nameLoaded', {name}))
+				this.context.dispatchEvent(new NameEvent(NameEvent.NAME_LOADED, {name}))
 				return result;
 			})
 			;
@@ -40,7 +41,7 @@ export default class NameService extends LocalHash
 		return Promise.resolve()
 			.then(() =>
 			{
-				this.context.dispatchEvent(new DataEvent('nameSaved', {name}));
+				this.context.dispatchEvent(new NameEvent(NameEvent.NAME_SAVED, {name}));
 				return this;
 			})
 			;
