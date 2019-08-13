@@ -1,5 +1,9 @@
 import { DataEvent } from 'conbo';
 
+/**
+ * Event class used to dispatch name related events
+ * @author	Neil Rackett
+ */
 export default class NameEvent extends DataEvent
 {
 	static NAME_CHANGE = 'nameChange';
@@ -8,5 +12,3 @@ export default class NameEvent extends DataEvent
 	static NAME_SAVE = 'nameSave';
 	static NAME_SAVED = 'nameSaved';
 }
-
-
