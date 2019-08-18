@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppContext } from '../context';
 import NameEvent from '../events/NameEvent';
+import { bindAll } from 'conbo';
 
 /**
  * Output view
@@ -16,9 +17,11 @@ export default class OutputView extends Component
 
 		this.state = {};
 
+		bindAll(this);
+
 		context
-			.addEventListener(NameEvent.NAME_LOADED, this.nameChangeHandler, this)
-			.addEventListener(NameEvent.NAME_CHANGE, this.nameChangeHandler, this)
+			.addEventListener(NameEvent.NAME_LOADED, this.nameChangeHandler)
+			.addEventListener(NameEvent.NAME_CHANGE, this.nameChangeHandler)
 			;
 	}
 

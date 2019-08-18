@@ -19,11 +19,10 @@ export default class InputView extends Component
 
 		this.state = {};
 
-		context
-			.addEventListener(NameEvent.NAME_LOADED, this.nameLoadedHandler, this)
-			;
-
+		// Ensures all of this classes methods run in the correct scope
 		bindAll(this);
+
+		context.addEventListener(NameEvent.NAME_LOADED, this.nameLoadedHandler);
 	}
 
 	nameLoadedHandler(event)
