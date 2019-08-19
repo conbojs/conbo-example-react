@@ -30,7 +30,7 @@ export default class InputView extends Component
 		this.setState({name: event.data.name});
 	}
 
-	inputChangeHandler(event)
+	inputHandler(event)
 	{
 		let name = event.target.value;
 		this.transientName = name;
@@ -58,7 +58,7 @@ export default class InputView extends Component
 		return (
 			<form className="App-intro">
 				My name is
-				&nbsp;<input type="text" defaultValue={this.state.name} onChange={this.inputChangeHandler} />
+				&nbsp;<input type="text" defaultValue={this.state.name} onInput={this.inputHandler} />
 				&nbsp;<button type="submit" onClick={this.save}>Save</button>
 				&nbsp;<button type="reset" onClick={this.resetHandler}>Reset</button>
 			</form>

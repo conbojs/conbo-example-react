@@ -27,7 +27,7 @@ export default class OutputView extends Component
 
 	nameChangeHandler(event)
 	{
-		this.setState({name: event.data.name});
+		this.setState({name: event.data.name || 'whoever you are'});
 	}
 
 	render()
