@@ -2,7 +2,10 @@ import { LocalHash, assign } from 'conbo';
 import NameEvent from '../events/NameEvent';
 
 /**
- * Simple service that saves and loads a name (could be an HttpService, fetch, etc, in a real app)
+ * Simple model/service that loads and stores a name; in your app, this could
+ * be an HttpService, fetch, or local data store for the global application 
+ * state.
+ * 
  * @author	Neil Rackett
  */
 export default class NameService extends LocalHash
@@ -14,7 +17,7 @@ export default class NameService extends LocalHash
 		assign(options, 
 		{
 			name: 'NameService',
-			source: {name:'Conbo'}
+			source: {name:'Conbo'} // default
 		});
 	}
 
